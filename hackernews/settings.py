@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'graphene_django',
 
     'links',
+    'users',
 ]
 
 GRAPHENE = {
