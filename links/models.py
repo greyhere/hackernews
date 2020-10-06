@@ -10,3 +10,15 @@ class Link(models.Model):
 		null=True,
 		on_delete=models.CASCADE
 	)
+
+
+class Vote(models.Model):
+	user = models.ForeignKey(
+		settings.AUTH_USER_MODEL,
+		on_delete=models.CASCADE
+	)
+	link = models.ForeignKey(
+		Link,	
+		related_name="votes",
+		on_delete=models.CASCADE
+	)
