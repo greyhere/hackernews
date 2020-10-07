@@ -9,9 +9,10 @@ from users.schema import (
 	Query as UsersQuery,
 	Mutation as UsersMutation,
 )
-
-from links.schema_relay import RelayQuery
-
+from links.schema_relay import (
+	RelayQuery,
+	RelayMutation,
+)
 
 
 class Query(
@@ -23,7 +24,12 @@ class Query(
 	pass
 
 
-class Mutation(UsersMutation, LinksMutation, graphene.ObjectType):
+class Mutation(
+	UsersMutation,
+	LinksMutation,
+	RelayMutation,
+	graphene.ObjectType
+):
 	token_auth = graphql_jwt.ObtainJSONWebToken.Field()
 	verify_token = graphql_jwt.Verify.Field()
 	refresh_token = graphql_jwt.Refresh.Field()
