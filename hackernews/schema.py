@@ -10,8 +10,16 @@ from users.schema import (
 	Mutation as UsersMutation,
 )
 
+from links.schema_relay import RelayQuery
 
-class Query(UsersQuery, LinksQuery, graphene.ObjectType):
+
+
+class Query(
+	UsersQuery,
+	LinksQuery,
+	RelayQuery,
+	graphene.ObjectType
+):
 	pass
 
 
